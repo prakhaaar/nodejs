@@ -1,3 +1,48 @@
-IP: ::1 at 3/10/2025, 6:59:42 pm
-IP: ::1 at 3/10/2025, 7:18:22 pm
-IP: ::1 at 3/10/2025, 7:25:16 pm
+Node.js Versioning and RESTful APIs - Notes
+
+1. Node.js Versioning:
+    - Node.js uses Semantic Versioning (SemVer): MAJOR.MINOR.PATCH (e.g., 18.16.0)
+      - MAJOR: Breaking changes
+      - MINOR: New features, backward compatible
+      - PATCH: Bug fixes, backward compatible
+    - LTS (Long Term Support) versions are recommended for production.
+    - Use `node -v` to check your Node.js version.
+    - Update Node.js using Node Version Manager (nvm) or official installers.
+
+2. RESTful APIs:
+    - REST (Representational State Transfer) is an architectural style for designing networked applications.
+    - RESTful APIs use HTTP methods:
+      - GET: Retrieve data
+      - POST: Create data
+      - PUT/PATCH: Update data
+      - DELETE: Remove data
+    - Resources are identified by URLs (e.g., /users/123).
+    - Responses are usually in JSON format.
+    - Status codes indicate result (e.g., 200 OK, 404 Not Found, 201 Created).
+    - Stateless: Each request contains all information needed for processing.
+
+3. Example: Simple RESTful API with Node.js (Express)
+    - Install Express: `npm install express`
+    - Basic server:
+      const express = require('express');
+      const app = express();
+      app.use(express.json());
+
+      app.get('/api/items', (req, res) => {
+         res.json([{ id: 1, name: 'Item 1' }]);
+      });
+
+      app.listen(3000, () => console.log('Server running on port 3000'));
+
+4. Best Practices:
+    - Use proper HTTP status codes.
+    - Validate and sanitize input.
+    - Use versioning for APIs (e.g., /api/v1/items).
+    - Handle errors gracefully.
+    - Secure APIs (authentication, authorization).
+
+References:
+- https://nodejs.org/en/about/releases/
+- https://expressjs.com/
+- https://restfulapi.net/
+
